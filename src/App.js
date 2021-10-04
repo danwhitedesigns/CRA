@@ -36,7 +36,7 @@ class App extends Component {
 
     render() {
         const apiCallList = this.state.results.map((pokemon, i) => {
-            return <ApiCall key={i} name={pokemon.name} />
+            return <ApiCall key={i} name={pokemon.name} url={pokemon.url} />
         })
         return (
             <div className="App">
