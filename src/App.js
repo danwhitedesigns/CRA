@@ -7,7 +7,7 @@ class App extends Component {
         this.state = {
             results: [],
             offset: 0,
-            initialAmount: 30,
+            initialAmount: 24,
             currentPage: 1
         }
 
