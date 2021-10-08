@@ -34,7 +34,6 @@ class PokemonCard extends Component {
                     <div className="card-body mx-auto">
                         <h6 className="card-title text-center">{this.state.name.toLowerCase().split(" ").map(char => char.charAt(0).toUpperCase() + char.substring(1)).join(' ')}</h6>
                         <img alt={imageAlt} src={this.state.imageUrl} className="img-fluid" />
-                        {displayClass}
                     </div>
                 </div>
             </div>
