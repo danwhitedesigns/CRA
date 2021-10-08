@@ -18,14 +18,23 @@ class PokemonCard extends Component {
     }
 
     render() {
+        const filterText = this.props.filterText;
         const imageAlt = `pokemon ${this.state.name}`;
+        var displayClass = "";
+        if (this.state.name.includes(filterText.toLowerCase())) {
+            displayClass = "d-block";
+
+        } else {
+            displayClass = "d-none";
+        }
         return (
-            <div className="col-12 col-md-4 col-lg-3 mb-3">
+            <div className={`col-12 col-md-4 col-lg-3 mb-3 ${displayClass}`}>
                 <div className="card">
                     <h4 className="card-header">{this.state.pokemonIndex}</h4>
                     <div className="card-body mx-auto">
                         <h6 className="card-title text-center">{this.state.name.toLowerCase().split(" ").map(char => char.charAt(0).toUpperCase() + char.substring(1)).join(' ')}</h6>
                         <img alt={imageAlt} src={this.state.imageUrl} className="img-fluid" />
+                        {displayClass}
                     </div>
                 </div>
             </div>

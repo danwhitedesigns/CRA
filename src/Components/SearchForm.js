@@ -3,16 +3,11 @@ import React, { Component } from "react";
 class SearchForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            searchValue: ''
-        }
-
-        this.handleSearchChange = this.handleSearchChange.bind(this);
+        this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
     }
 
-    handleSearchChange(event) {
-        this.setState({ value: event.target.value });
-        console.log(this.state.value)
+    handleFilterTextChange(e) {
+        this.props.onFilterTextChange(e.target.value);
     }
 
     componentDidMount() {
@@ -24,7 +19,7 @@ class SearchForm extends Component {
         return (
             <div className="row justify-content-center mt-3">
                 <div className="col-12 col-md-4">
-                    <input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleSearchChange} />
+                    <input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleFilterTextChange} />
                 </div>
             </div>
         );

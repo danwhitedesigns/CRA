@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import PokemonCard from './Components/PokemonCard';
-import SearchForm from './Components/SearchForm';
-import Axios from 'axios';
+import PokemonApp from './Components/PokemonApp';
 
 class App extends Component {
     constructor(props) {
@@ -13,26 +11,13 @@ class App extends Component {
         }
     }
 
-    async componentDidMount() {
-        const response = await Axios.get(this.state.url);
-        this.setState({ pokemon: response.data['results'] })
+    componentDidMount() {
     }
 
     render() {
         return (
             <div className="App">
-                <SearchForm />
-                {
-                    this.state.pokemon ? (
-                        <div className="container">
-                            <div className="row mt-3">
-                                {this.state.pokemon.map(pokemon => (
-                                    <PokemonCard key={pokemon.name} name={pokemon.name} url={pokemon.url} />
-                                ))}
-                            </div>
-                        </div>
-                    ) : (<span>Loading...</span>)
-                }
+                <PokemonApp />
             </div>
         );
     }
