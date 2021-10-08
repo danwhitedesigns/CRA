@@ -1,57 +1,38 @@
 import React, { Component } from "react";
-import ApiCall from './ApiCall';
+import PokemonCard from './Components/PokemonCard';
+import SearchForm from './Components/SearchForm';
+import Axios from 'axios';
 
 class App extends Component {
     constructor(props) {
         super(props);
+        const limit = 1118;
         this.state = {
-            results: [],
-            offset: 0,
-            initialAmount: 24,
-            currentPage: 1
+            url: `https://pokeapi.co/api/v2/pokemon/?limit=${limit}`,
+            pokemon: null,
         }
-
-        this.nextPageClickEvent = this.nextPageClickEvent.bind(this);
     }
 
-    nextPageClickEvent() {
-        fetch('https://pokeapi.co/api/v2/pokemon/?offset=' + this.state.offset + '&limit=' + this.state.initialAmount)
-            .then(res => res.json())
-            .then((result) => {
-                this.setState({ results: result.results });
-                this.setState({ offset: this.state.offset + this.state.initialAmount });
-                this.setState({ currentPage: this.state.currentPage+1 });
-            });
-    }
-
-    componentDidMount() {
-        fetch('https://pokeapi.co/api/v2/pokemon/?limit=' + this.state.initialAmount)
-            .then(res => res.json())
-            .then((result) => {
-                this.setState({ results: result.results });
-                this.setState({ offset: this.state.initialAmount });
-            });
-        
+    async componentDidMount() {
+        const response = await Axios.get(this.state.url);
+        this.setState({ pokemon: response.data['results'] })
     }
 
     render() {
-        const apiCallList = this.state.results.map((pokemon, i) => {
-            return <ApiCall key={i} name={pokemon.name} url={pokemon.url} />
-        })
         return (
             <div className="App">
-                <div className="container">
-                    <h1 className="text-center mb-4">Pokemon Api Results</h1>
-                    <div className="text-center mb-4">
-                        <span>Current page: {this.state.currentPage}</span>
-                    </div>
-                    <div className="text-center mb-4">
-                        <button onClick={this.nextPageClickEvent}>Next Page</button>
-                    </div>
-                    <div className="row">
-                        {apiCallList}
-                    </div>
-                </div>
+                <SearchForm />
+                {
+                    this.state.pokemon ? (
+                        <div className="container">
+                            <div className="row mt-3">
+                                {this.state.pokemon.map(pokemon => (
+                                    <PokemonCard key={pokemon.name} name={pokemon.name} url={pokemon.url} />
+                                ))}
+                            </div>
+                        </div>
+                    ) : (<span>Loading...</span>)
+                }
             </div>
         );
     }
