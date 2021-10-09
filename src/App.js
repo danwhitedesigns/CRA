@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PokemonApp from './Components/PokemonApp';
+import ScrollToTop from './Components/ScrollToTop';
 
 class App extends Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class App extends Component {
         return (
             <div className="App">
                 <PokemonApp />
+                <ScrollToTop />
             </div>
         );
     }

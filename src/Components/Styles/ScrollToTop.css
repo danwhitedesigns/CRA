@@ -1,0 +1,8 @@
+.scrollToTopContainer {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 20px;
+}
+.scrollToTop {
+    cursor: pointer;
+}
