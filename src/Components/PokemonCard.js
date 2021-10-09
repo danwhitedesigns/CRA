@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Col, Card, CardBody, CardTitle } from 'reactstrap';
 
 class PokemonCard extends Component {
     constructor(props) {
@@ -28,15 +29,15 @@ class PokemonCard extends Component {
             displayClass = "d-none";
         }
         return (
-            <div className={`col-12 col-md-4 col-lg-3 mb-3 ${displayClass}`}>
-                <div className="card">
+            <Col md={4} lg={3} className={`mb-3 ${displayClass}`}>
+                <Card>
                     <h4 className="card-header">{this.state.pokemonIndex}</h4>
-                    <div className="card-body mx-auto">
-                        <h6 className="card-title text-center">{this.state.name.toLowerCase().split(" ").map(char => char.charAt(0).toUpperCase() + char.substring(1)).join(' ')}</h6>
-                        <img alt={imageAlt} src={this.state.imageUrl} className="img-fluid" />
-                    </div>
-                </div>
-            </div>
+                    <CardBody className="mx-auto">
+                        <CardTitle className="text-center"><h6>{this.state.name.toLowerCase().split(" ").map(char => char.charAt(0).toUpperCase() + char.substring(1)).join(' ')}</h6></CardTitle>
+                        <img alt={imageAlt} src={this.state.imageUrl} className="img-fluid d-block mx-auto" />
+                    </CardBody>
+                </Card>
+            </Col>
         );
     }
 }

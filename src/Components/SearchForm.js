@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Container, Row, Col, Input } from 'reactstrap';
 
 class SearchForm extends Component {
     constructor(props) {
@@ -17,11 +18,13 @@ class SearchForm extends Component {
     render() {
 
         return (
-            <div className="row justify-content-center mt-3">
-                <div className="col-12 col-md-4">
-                    <input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleFilterTextChange} />
-                </div>
-            </div>
+            <Container>
+                <Row className="justify-content-center mt-3">
+                    <Col md={4}>
+                        <Input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={this.handleFilterTextChange} />
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PokemonCard from './PokemonCard'
 import SearchForm from './SearchForm';
 import Axios from 'axios';
+import { Container, Row, Col } from 'reactstrap';
 
 class PokemonApp extends Component {
     constructor(props) {
@@ -28,20 +29,23 @@ class PokemonApp extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <Container>
+                <Row className="mt-5 mb-3">
+                    <Col className="text-center">
+                        <h1>Pokemon Search</h1>
+                    </Col>
+                </Row>
                 <SearchForm filterText={this.state.filterText} onFilterTextChange={this.handleFilterTextChange} />
                 {
                     this.state.pokemon ? (
-                        <div className="container">
-                            <div className="row mt-3">
+                            <Row className="mt-3 justify-content-center">
                                 {this.state.pokemon.map(pokemon => (
                                     <PokemonCard key={pokemon.name} name={pokemon.name} url={pokemon.url} filterText={this.state.filterText} />
                                 ))}
-                            </div>
-                        </div>
-                    ) : (<div className="container text-center mt-3"><h4>Loading... Be patient, there are a lot of Pokemon to load...</h4></div>)
+                            </Row>
+                    ) : (<Container className="text-center mt-3"><h4>Loading Pokemon...</h4></Container>)
                 }
-            </React.Fragment>
+            </Container>
         )
     };
 }
