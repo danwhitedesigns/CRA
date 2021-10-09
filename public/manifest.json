@@ -4,6 +4,8 @@
   "scope": "/",
   "start_url": "/",
   "display": "standalone",
+  "description": "A Pokemon index of all pokemon with search feature",
+  "orientation": "portrait",
   "theme_color": "#CC0000",
   "background_color": "#ffffff",
   "icons": [
@@ -11,7 +13,19 @@
       "src": "favicon.ico",
       "sizes": "32x32",
       "type": "image/x-icon",
-      "purpose": "any"
+      "purpose": "any maskable"
+    },
+    {
+      "src": "AppImages/android/android-launchericon-192-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "AppImages/android/android-launchericon-512-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
     },
     {
       "src": "AppImages/windows11/SmallTile.scale-100.png",
