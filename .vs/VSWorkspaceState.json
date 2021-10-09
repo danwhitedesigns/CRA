@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\public",
-    "\\src",
-    "\\src\\Components"
+    "\\src"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\node_modules",
   "PreviewInSolutionExplorer": false
 }

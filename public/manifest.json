@@ -1,12 +1,17 @@
 {
   "short_name": "Pokemon Search",
   "name": "Pokemon Search",
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#CC0000",
+  "background_color": "#ffffff",
   "icons": [
     {
-      "src": "AppImages/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "favicon.ico",
+      "sizes": "32x32",
       "type": "image/x-icon",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "AppImages/windows11/SmallTile.scale-100.png",
@@ -456,9 +461,5 @@
       "src": "AppImages/ios/1024.png",
       "sizes": "1024x1024"
     }
-  ],
-  "start_url": "/",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
